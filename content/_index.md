@@ -1,6 +1,6 @@
 ---
 banner:
-  title: "Andromeda is the most intuitive </br> way to prototype Designs"
+  title: "Anteater Formula Racing </br> UCI FSAE ICE"
   image: /images/banner-app.png
   link:
     label: Get Premium Version
@@ -8,11 +8,11 @@ banner:
 
 ##brands
 brands:
-  - /images/brands/01-colored.png
-  - /images/brands/02-colored.png
-  - /images/brands/03-colored.png
-  - /images/brands/04-colored.png
-  - /images/brands/05-colored.png
+  - /images/brands/Bestpass.png
+  - /images/brands/LCEC.png
+  - /images/brands/Renewal_By_Anderson.png
+  - /images/brands/SAE_International.png
+  - /images/brands/Transtar.png
   - /images/brands/06-colored.png
   - /images/brands/04-colored.png
   - /images/brands/05-colored.png
