@@ -41,8 +41,8 @@ const Features = ({ features }) => {
           >
             {features.list.map((item, index) => (
               <SwiperSlide key={"feature-" + index}>
-                <div className="feature-card m-4 rounded-md border border-transparent px-7 py-16 shadow-[0px_4px_25px_rgba(0,0,0,.05)] transition-all duration-300  hover:border-[#ffece4] hover:shadow-none">
-                  <div className="feature-card-icon inline-flex h-20 w-20 items-center justify-center rounded-md border border-[#fff7f3] text-primary">
+                <div className="feature-card m-4 rounded-md border border-transparent px-7 py-16 shadow-[0px_4px_25px_rgba(0,0,0,.05)] transition-all duration-300  hover:border-[#1b3d6d] hover:shadow-none">
+                  <div className="feature-card-icon inline-flex h-20 w-20 items-center justify-center rounded-md border border-[#9ca3af] text-primary">
                     <FeatherIcon icon={item.icon} />
                   </div>
                   <h3 className="h4 mb-5 mt-6">{item.title}</h3>
