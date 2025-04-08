@@ -1,7 +1,7 @@
 ---
 banner:
   title: "Anteater Formula Racing </br> UCI FSAE ICE"
-  image: /images/banner-app.png
+  image: /images/AFR_banner.png
   link:
     label: Learn More
     href: "https://themefisher.com/products/andromeda-nextjs"
@@ -13,10 +13,45 @@ brands:
   - /images/brands/03-colored.png
   - /images/brands/04-colored.png
   - /images/brands/05-colored.png
-  - /images/brands/06-colored.png
-  - /images/brands/04-colored.png
-  - /images/brands/05-colored.png
-  - /images/brands/06-colored.png
+  - /images/brands/06-colored.jpg
+  - /images/brands/07-colored.jpg
+  - /images/brands/08-colored.png
+  - /images/brands/09-colored.png
+  - /images/brands/10-colored.jpg
+  - /images/brands/11-colored.png
+  - /images/brands/12-colored.png
+  - /images/brands/13-colored.png
+  - /images/brands/14-colored.png
+  - /images/brands/15-colored.png
+  - /images/brands/16-colored.png
+  - /images/brands/17-colored.png
+  - /images/brands/18-colored.png
+  - /images/brands/19-colored.png
+  - /images/brands/20-colored.png
+  - /images/brands/21-colored.png
+  - /images/brands/22-colored.png
+  - /images/brands/23-colored.png
+  - /images/brands/24-colored.png
+  - /images/brands/25-colored.png
+  - /images/brands/26-colored.png
+  - /images/brands/27-colored.png
+  - /images/brands/28-colored.png
+  - /images/brands/29-colored.png
+  - /images/brands/30-colored.png
+  - /images/brands/31-colored.png
+  - /images/brands/32-colored.png
+  - /images/brands/33-colored.jpg
+  - /images/brands/34-colored.png
+  - /images/brands/35-colored.png
+  - /images/brands/36-colored.png
+  - /images/brands/37-colored.png
+  - /images/brands/38-colored.jpg
+  - /images/brands/39-colored.jpg
+  - /images/brands/40-colored.jpg
+  - /images/brands/41-colored.png
+  - /images/brands/42-colored.jpg
+  - /images/brands/43-colored.png
+  - /images/brands/44-colored.png
 
 #features
 features:
@@ -68,7 +103,7 @@ speciality:
 #Testimonial
 testimonial:
   title: OUR TESTIMONIALS
-  subtitle: Don’t Take Our Word For It
+  subtitle: Don't Take Our Word For It
   description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi egestas </br> Werat viverra id et aliquet. vulputate egestas sollicitudin.
   list:
     - author: David Cameron

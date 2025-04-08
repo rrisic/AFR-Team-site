@@ -6,10 +6,11 @@ import { gsap } from "@lib/gsap";
 import { markdownify } from "@lib/utils/textConverter";
 import Link from "next/link";
 import { useEffect } from "react";
-import { Autoplay } from "swiper";
+import { Autoplay, Navigation } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
+import brands from "../../data/brands";
 
-const HomeBanner = ({ banner: bannerData, brands }) => {
+const HomeBanner = ({ banner: bannerData }) => {
   useEffect(() => {
     const ctx2 = gsap.context(() => {
       const banner = document.querySelector(".banner");
@@ -182,34 +183,51 @@ const HomeBanner = ({ banner: bannerData, brands }) => {
             </div>
           </div>
           <div className="row border-y border-border py-5">
+            <div className="col-12 mb-6">
+              <div className="text-center relative flex items-center justify-center">
+                <div className="swiper-button-prev !static !translate-y-0 !mr-4"></div>
+                <div>
+                  <h2 className="text-2xl font-semibold text-primary mb-2">AFR Sponsors</h2>
+                  <div className="w-24 h-1 bg-secondary mx-auto rounded-full"></div>
+                </div>
+                <div className="swiper-button-next !static !translate-y-0 !ml-4"></div>
+              </div>
+            </div>
             <div className="animate from-right col-12">
               <Swiper
                 loop={true}
-                slidesPerView={3}
-                breakpoints={{
-                  992: {
-                    slidesPerView: 5,
-                  },
-                }}
+                slidesPerView={5}
                 spaceBetween={20}
-                modules={[Autoplay]}
-                autoplay={{ delay: 3000 }}
+                modules={[Autoplay, Navigation]}
+                autoplay={{ 
+                  delay: 3000,
+                  disableOnInteraction: false,
+                  pauseOnMouseEnter: true
+                }}
+                navigation={{
+                  nextEl: '.swiper-button-next',
+                  prevEl: '.swiper-button-prev',
+                }}
+                slidesPerGroup={1}
+                className="swiper-container relative"
               >
-                {brands.map((brand, index) => (
+                {brands.map((brand) => (
                   <SwiperSlide
-                    className=" h-20 cursor-pointer px-6 py-6 grayscale  transition hover:grayscale-0 lg:px-10"
-                    key={"brand-" + index}
+                    className="h-32 cursor-pointer px-6 py-6 grayscale transition hover:grayscale-0 lg:px-10"
+                    key={"brand-" + brand.id}
                   >
-                    <div className="relative h-full">
-                      <ImageFallback
-                        className="object-contain"
-                        src={brand}
-                        sizes="100vw"
-                        alt=""
-                        fill={true}
-                        priority={true}
-                      />
-                    </div>
+                    <Link href={brand.url} target="_blank" rel="noopener noreferrer" className="block h-full">
+                      <div className="relative h-full">
+                        <ImageFallback
+                          className="object-contain"
+                          src={brand.image}
+                          sizes="100vw"
+                          alt={brand.name}
+                          fill={true}
+                          priority={true}
+                        />
+                      </div>
+                    </Link>
                   </SwiperSlide>
                 ))}
               </Swiper>
