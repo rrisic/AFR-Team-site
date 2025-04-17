@@ -1,57 +1,33 @@
 ---
 banner:
   title: "Anteater Formula Racing </br> UCI FSAE ICE"
-  image: /images/AFR_banner.png
+  image: /images/AFR/banner_car.png
   link:
     label: Learn More
     href: "https://themefisher.com/products/andromeda-nextjs"
 
 ##brands
 brands:
-  - /images/brands/01-colored.png
-  - /images/brands/02-colored.png
-  - /images/brands/03-colored.png
-  - /images/brands/04-colored.png
-  - /images/brands/05-colored.png
-  - /images/brands/06-colored.jpg
-  - /images/brands/07-colored.jpg
-  - /images/brands/08-colored.png
-  - /images/brands/09-colored.png
-  - /images/brands/10-colored.jpg
-  - /images/brands/11-colored.png
-  - /images/brands/12-colored.png
-  - /images/brands/13-colored.png
-  - /images/brands/14-colored.png
-  - /images/brands/15-colored.png
-  - /images/brands/16-colored.png
-  - /images/brands/17-colored.png
-  - /images/brands/18-colored.png
-  - /images/brands/19-colored.png
-  - /images/brands/20-colored.png
-  - /images/brands/21-colored.png
-  - /images/brands/22-colored.png
-  - /images/brands/23-colored.png
-  - /images/brands/24-colored.png
-  - /images/brands/25-colored.png
-  - /images/brands/26-colored.png
-  - /images/brands/27-colored.png
-  - /images/brands/28-colored.png
-  - /images/brands/29-colored.png
-  - /images/brands/30-colored.png
-  - /images/brands/31-colored.png
-  - /images/brands/32-colored.png
-  - /images/brands/33-colored.jpg
-  - /images/brands/34-colored.png
-  - /images/brands/35-colored.png
-  - /images/brands/36-colored.png
-  - /images/brands/37-colored.png
-  - /images/brands/38-colored.jpg
-  - /images/brands/39-colored.jpg
-  - /images/brands/40-colored.jpg
-  - /images/brands/41-colored.png
-  - /images/brands/42-colored.jpg
-  - /images/brands/43-colored.png
-  - /images/brands/44-colored.png
+  - public\images\AFR\3DConnexion_Logo.png
+  - public\images\AFR\Airtech_Logo.png
+  - public\images\AFR\Ansys_Logo.png
+  - public\images\AFR\Calspan_Logo.png
+  - public\images\AFR\Chevron_Logo.png
+  - public\images\AFR\DigiKey_Logo.png
+  - public\images\AFR\Gamma_Logo.png
+  - public\images\AFR\Glidewell_Logo.png
+  - public\images\AFR\Haas_Logo.png
+  - public\images\AFR\Henkel_Logo.png
+  - public\images\AFR\Hoosier_Logo.png
+  - public\images\AFR\Lawrence_Logo.png
+  - public\images\AFR\M&K_Logo.png
+  - public\images\AFR\RapidHarness_Logo.png
+  - public\images\AFR\Realis_Logo.png
+  - public\images\AFR\SAE_Logo.png
+  - public\images\AFR\Siemens_Logo.png
+  - public\images\AFR\UCI_Engineering_Logo.png
+  - public\images\AFR\UROP_Logo.png
+
 
 #features
 features:

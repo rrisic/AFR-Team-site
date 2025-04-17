@@ -1,12 +1,12 @@
 {
   "site": {
-    "title": "Andromeda Light Nextjs",
+    "title": "Anteater Formula Racing",
     "base_url": "/",
-    "favicon": "/images/favicon.png",
-    "logo": "/images/logo.svg",
-    "logo_width": "240",
-    "logo_height": "34",
-    "logo_text": "Andromeda"
+    "favicon": "/images/AFR/AFR_Anteater.png",
+    "logo": "/images/AFR/AFR_Logo_Transparent.png",
+    "logo_width": "100",
+    "logo_height": "120",
+    "logo_text": "Anteater Formula Racing"
   },
 
   "settings": {
@@ -29,9 +29,9 @@
   },
 
   "nav_button": {
-    "enable": true,
-    "label": "Download Now",
-    "link": "https://themefisher.com/products/andromeda-light-nextjs"
+    "enable": false,
+    "label": "TODO: Future Feature",
+    "link": "#"
   },
 
   "metadata": {

@@ -3,7 +3,8 @@ html {
 }
 
 body {
-  @apply text-[15px] bg-body font-primary font-normal leading-relaxed text-text;
+  @apply text-[15px] bg-[#0a0a0a] font-primary font-normal leading-relaxed text-gray-200;
+  background: linear-gradient(to bottom, #0a0a0a, #111111);
 }
 
 h1,
@@ -12,7 +13,8 @@ h3,
 h4,
 h5,
 h6 {
-  @apply font-primary font-semibold leading-tight text-dark;
+  @apply font-primary font-semibold leading-tight text-white;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
 }
 
 h1,
@@ -43,4 +45,36 @@ h5,
 h6,
 .h6 {
   @apply text-h6;
+}
+
+// Update glow effects with navy blue
+.glow {
+  box-shadow: 0 0 20px rgba(0, 50, 100, 0.3);
+  transition: box-shadow 0.3s ease;
+}
+
+.glow:hover {
+  box-shadow: 0 0 30px rgba(0, 50, 100, 0.5);
+}
+
+// Update card styling with racing theme
+.card {
+  @apply bg-[#1a1a1a] rounded-lg p-6;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(255, 200, 0, 0.2);
+}
+
+// Add racing-themed accent styles
+.racing-accent {
+  @apply border-l-4 border-[#003264] pl-4;
+}
+
+.racing-highlight {
+  @apply text-[#FFD700] font-bold;
 }

@@ -2,19 +2,21 @@
 
 import Circle from "@layouts/components/Circle";
 import ImageFallback from "@layouts/components/ImageFallback";
+import SocialButtons from "@layouts/components/SocialButtons";
 import { gsap } from "@lib/gsap";
 import { markdownify } from "@lib/utils/textConverter";
 import Link from "next/link";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { Autoplay, Navigation } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import brands from "../../data/brands";
 
 const HomeBanner = ({ banner: bannerData }) => {
+  const sponsorsRef = useRef(null);
+
   useEffect(() => {
     const ctx2 = gsap.context(() => {
       const banner = document.querySelector(".banner");
-      const bannerBg = document.querySelector(".banner-bg");
       const bannerContent = document.querySelector(".banner-content");
       const header = document.querySelector(".header");
       const tl = gsap.timeline();
@@ -29,62 +31,31 @@ const HomeBanner = ({ banner: bannerData }) => {
           { y: 20, opacity: 0 },
           { y: 0, opacity: 1, duration: 0.5 },
           ">-0.4"
-        )
-        .fromTo(
-          ".banner-img",
-          {
-            y: 20,
-            opacity: 0,
-          },
-          {
-            y: 0,
-            opacity: 1,
-            duration: 0.5,
-          },
-          ">-.5"
         );
 
-      //parallax banner
-      const parallaxTl = gsap.timeline({
-        ease: "none",
-        scrollTrigger: {
-          trigger: banner,
-          start: () => `top ${header.clientHeight}`,
-          scrub: true,
-        },
+      // Scroll-based reveal for sponsors section
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            gsap.to(entry.target, {
+              opacity: 1,
+              y: 0,
+              duration: 0.7,
+              ease: "power2.out"
+            });
+          }
+        });
+      }, {
+        threshold: 0.1
       });
 
-      const position = (banner.offsetHeight - bannerBg.offsetHeight) * 0.4;
-      parallaxTl
-        .fromTo(
-          bannerBg,
-          {
-            y: 0,
-          },
-          {
-            y: -position,
-          }
-        )
-        .fromTo(
-          bannerContent,
-          {
-            y: 0,
-          },
-          {
-            y: position,
-          },
-          "<"
-        )
-        .fromTo(
-          ".banner-bg .circle",
-          {
-            y: 0,
-          },
-          {
-            y: position,
-          },
-          "<"
-        );
+      if (sponsorsRef.current) {
+        observer.observe(sponsorsRef.current);
+      }
+
+      return () => {
+        observer.disconnect();
+      };
     });
 
     return () => ctx2.revert();
@@ -94,110 +65,95 @@ const HomeBanner = ({ banner: bannerData }) => {
     <section className="section banner pt-0">
       <div className="container-xl">
         <div className="relative">
-          <div className="bg-theme banner-bg col-12 absolute left-0 top-0">
-            <Circle
-              className="circle left-[10%] top-12"
-              width={32}
-              height={32}
-              fill={false}
-            />
-            <Circle
-              className="circle left-[2.5%] top-[29%]"
-              width={85}
-              height={85}
-            />
-            <Circle
-              className="circle bottom-[48%] left-[22%]"
-              width={20}
-              height={20}
-            />
-            <Circle
-              className="circle bottom-[37%] left-[15%]"
-              width={47}
-              height={47}
-              fill={false}
-            />
-            <Circle
-              className="circle bottom-[13%] left-[6%]"
-              width={62}
-              height={62}
-              fill={false}
-            />
-            <Circle
-              className="circle right-[12%] top-[15%]"
-              width={20}
-              height={20}
-            />
-            <Circle
-              className="circle right-[2%] top-[30%]"
-              width={73}
-              height={73}
-              fill={false}
-            />
-            <Circle
-              className="circle right-[19%] top-[48%]"
-              width={37}
-              height={37}
-              fill={false}
-            />
-            <Circle
-              className="circle right-[33%] top-[54%]"
-              width={20}
-              height={20}
-            />
-            <Circle
-              className="circle bottom-[20%] right-[3%]"
-              width={65}
-              height={65}
-            />
-          </div>
-          <div className="row overflow-hidden rounded-2xl">
-            <div className="col-12">
-              <div className="row relative justify-center pb-10">
-                <div className="banner-content col-10 pb-10 pt-20 text-center">
-                  {markdownify(
-                    bannerData.title,
-                    "h1",
-                    "mb-8 banner-title opacity-0"
-                  )}
-                  <div className="banner-btn opacity-0">
-                    <Link
-                      className="btn btn-primary"
-                      href={bannerData.link.href}
-                    >
-                      {bannerData.link.label}
-                    </Link>
-                  </div>
-                </div>
-                <div className="col-10">
-                  <ImageFallback
-                    className="banner-img opacity-0"
-                    src={bannerData.image}
-                    width={1170}
-                    height={666}
-                    priority={true}
-                    alt=""
-                  />
+          {/* Hero Section with Background Image */}
+          <div className="relative h-[80vh] min-h-[600px] w-full overflow-hidden">
+            <div className="absolute inset-0 z-0">
+              <ImageFallback
+                className="h-full w-full object-cover"
+                src={bannerData.image}
+                fill={true}
+                priority={true}
+                alt="AFR Formula Car"
+              />
+              <div className="absolute inset-0 bg-black/50"></div>
+            </div>
+            
+            {/* Content Overlay */}
+            <div className="relative z-10 flex h-full items-center justify-center">
+              <div className="banner-content text-center">
+                {markdownify(
+                  bannerData.title,
+                  "h1",
+                  "mb-8 banner-title opacity-0 text-white text-5xl md:text-6xl lg:text-7xl font-bold"
+                )}
+                <div className="banner-btn opacity-0">
+                  <SocialButtons />
                 </div>
               </div>
             </div>
           </div>
-          <div className="row border-y border-border py-5">
-            <div className="col-12 mb-6">
+
+          {/* Sponsors Section */}
+          <div ref={sponsorsRef} className="mt-[100px] pt-100px] opacity-0 translate-y-20 transition-all duration-700 ease-out" id="sponsors-section">
+            <div className="col-12 mb-3">
               <div className="text-center relative flex items-center justify-center">
-                <div className="swiper-button-prev !static !translate-y-0 !mr-4"></div>
+                <button
+                  className="swiper-button-prev !static !translate-y-0 !mr-4 !w-12 !h-12 !rounded-full !bg-racing-navy !flex !items-center !justify-center !transition-all !duration-300 hover:!bg-racing-gold group !after:!hidden"
+                  aria-label="Previous slide"
+                >
+                  <svg
+                    className="!w-6 !h-6 !text-white !transition-colors !duration-300 group-hover:!text-racing-navy"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M15 19l-7-7 7-7"
+                    />
+                  </svg>
+                </button>
                 <div>
-                  <h2 className="text-2xl font-semibold text-primary mb-2">AFR Sponsors</h2>
-                  <div className="w-24 h-1 bg-secondary mx-auto rounded-full"></div>
+                  <h2 className="text-2xl font-semibold text-white mb-2">AFR Sponsors</h2>
+                  <div className="w-24 h-1 bg-racing-gold mx-auto rounded-full"></div>
                 </div>
-                <div className="swiper-button-next !static !translate-y-0 !ml-4"></div>
+                <button
+                  className="swiper-button-next !static !translate-y-0 !ml-4 !w-12 !h-12 !rounded-full !bg-racing-navy !flex !items-center !justify-center !transition-all !duration-300 hover:!bg-racing-gold group !after:!hidden"
+                  aria-label="Next slide"
+                >
+                  <svg
+                    className="!w-6 !h-6 !text-white !transition-colors !duration-300 group-hover:!text-racing-navy"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M9 5l7 7-7 7"
+                    />
+                  </svg>
+                </button>
               </div>
             </div>
             <div className="animate from-right col-12">
               <Swiper
                 loop={true}
-                slidesPerView={5}
-                spaceBetween={20}
+                slidesPerView={3}
+                breakpoints={{
+                  640: {
+                    slidesPerView: 4,
+                  },
+                  1024: {
+                    slidesPerView: 5,
+                  },
+                }}
+                spaceBetween={30}
                 modules={[Autoplay, Navigation]}
                 autoplay={{ 
                   delay: 3000,
@@ -207,13 +163,14 @@ const HomeBanner = ({ banner: bannerData }) => {
                 navigation={{
                   nextEl: '.swiper-button-next',
                   prevEl: '.swiper-button-prev',
+                  disabledClass: '!hidden'
                 }}
                 slidesPerGroup={1}
                 className="swiper-container relative"
               >
                 {brands.map((brand) => (
                   <SwiperSlide
-                    className="h-32 cursor-pointer px-6 py-6 grayscale transition hover:grayscale-0 lg:px-10"
+                    className="h-48 cursor-pointer px-6 py-6 grayscale transition hover:grayscale-0 lg:px-10"
                     key={"brand-" + brand.id}
                   >
                     <Link href={brand.url} target="_blank" rel="noopener noreferrer" className="block h-full">

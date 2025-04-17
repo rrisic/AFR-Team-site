@@ -1,10 +1,14 @@
+"use client";
+
 import Logo from "@components/Logo";
 import config from "@config/config.json";
 import menu from "@config/menu.json";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import React, { useEffect, useRef, useState } from "react";
 import { CgClose } from "react-icons/cg";
+import { markdownify } from "@lib/utils/textConverter";
 
 const Header = () => {
   // distructuring the main menu from menu object
@@ -13,14 +17,21 @@ const Header = () => {
   // states declaration
   const [showMenu, setShowMenu] = useState(false);
   const [sticky, setSticky] = useState(false);
+  const [mounted, setMounted] = useState(false);
   const headerRef = useRef(null);
   const [direction, setDirection] = useState(null);
 
   const pathname = usePathname();
   const asPath = pathname;
 
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   //sticky header
   useEffect(() => {
+    if (!mounted) return;
+    
     const header = headerRef.current;
     const headerHeight = header.clientHeight + 200;
     let prevScroll = 0;
@@ -34,10 +45,14 @@ const Header = () => {
         setDirection(null);
       }
     });
-  }, []);
+  }, [mounted]);
 
   // logo source
   const { logo } = config.site;
+
+  if (!mounted) {
+    return null;
+  }
 
   return (
     <>
@@ -50,8 +65,8 @@ const Header = () => {
       >
         <nav className="navbar container-xl">
           {/* logo */}
-          <div className="order-0">
-            <Logo src={logo} />
+          <div className="order-0 pl-0">
+            <Logo />
           </div>
 
           <ul

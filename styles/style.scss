@@ -6,6 +6,10 @@
   @import "base";
 }
 
+body {
+  @apply bg-[#0d0d0d] text-white font-sans;
+}
+
 @layer components {
   @import "components";
   @import "navigation";

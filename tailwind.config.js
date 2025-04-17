@@ -52,6 +52,15 @@ module.exports = {
         "border-secondary": theme.colors.default.theme_color.border_secondary,
         "theme-light": theme.colors.default.theme_color.theme_light,
         "theme-dark": theme.colors.default.theme_color.theme_dark,
+        racing: {
+          navy: '#003264',
+          blue: '#0066CC',
+          gold: '#FFD700',
+          yellow: '#FFC72C',
+          black: '#0a0a0a',
+          dark: '#111111',
+          gray: '#1a1a1a',
+        },
       },
       fontSize: {
         base: font_base + "px",
@@ -68,6 +77,21 @@ module.exports = {
       fontFamily: {
         primary: [fontPrimary, fontPrimaryType],
         secondary: [fontSecondary, fontSecondaryType],
+      },
+      boxShadow: {
+        'racing': '0 0 20px rgba(0, 50, 100, 0.3)',
+        'racing-hover': '0 0 30px rgba(0, 50, 100, 0.5)',
+        'card': '0 4px 6px rgba(0, 0, 0, 0.1)',
+        'card-hover': '0 8px 15px rgba(255, 200, 0, 0.2)',
+      },
+      animation: {
+        'glow': 'glow 2s ease-in-out infinite alternate',
+      },
+      keyframes: {
+        glow: {
+          '0%': { boxShadow: '0 0 20px rgba(0, 50, 100, 0.3)' },
+          '100%': { boxShadow: '0 0 30px rgba(0, 50, 100, 0.5)' },
+        },
       },
     },
   },
