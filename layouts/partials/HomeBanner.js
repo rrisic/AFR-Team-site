@@ -94,8 +94,8 @@ const HomeBanner = ({ banner: bannerData }) => {
           </div>
 
           {/* Sponsors Section */}
-          <div ref={sponsorsRef} className="mt-[100px] pt-100px] opacity-0 translate-y-20 transition-all duration-700 ease-out" id="sponsors-section">
-            <div className="col-12 mb-3">
+          <div ref={sponsorsRef} className="mt-[100px] opacity-0 translate-y-20 transition-all duration-700 ease-out" id="sponsors-section">
+            <div className="col-12 mb-1">
               <div className="text-center relative flex items-center justify-center">
                 <button
                   className="swiper-button-prev !static !translate-y-0 !mr-4 !w-12 !h-12 !rounded-full !bg-racing-navy !flex !items-center !justify-center !transition-all !duration-300 hover:!bg-racing-gold group !after:!hidden"
@@ -117,8 +117,10 @@ const HomeBanner = ({ banner: bannerData }) => {
                   </svg>
                 </button>
                 <div>
-                  <h2 className="text-2xl font-semibold text-white mb-2">AFR Sponsors</h2>
-                  <div className="w-24 h-1 bg-racing-gold mx-auto rounded-full"></div>
+                  <Link href="/sponsors" className="group">
+                    <h2 className="text-2xl font-semibold text-white mb-1 transition-colors duration-300 group-hover:text-racing-gold">AFR Sponsors</h2>
+                    <div className="w-24 h-1 bg-racing-gold mx-auto rounded-full transition-colors duration-300 group-hover:bg-white"></div>
+                  </Link>
                 </div>
                 <button
                   className="swiper-button-next !static !translate-y-0 !ml-4 !w-12 !h-12 !rounded-full !bg-racing-navy !flex !items-center !justify-center !transition-all !duration-300 hover:!bg-racing-gold group !after:!hidden"
@@ -166,7 +168,7 @@ const HomeBanner = ({ banner: bannerData }) => {
                   disabledClass: '!hidden'
                 }}
                 slidesPerGroup={1}
-                className="swiper-container relative"
+                className="mt-[-20px] swiper-container relative"
               >
                 {brands.map((brand) => (
                   <SwiperSlide

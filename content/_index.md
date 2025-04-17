@@ -1,10 +1,7 @@
 ---
 banner:
   title: "Anteater Formula Racing </br> UCI FSAE ICE"
-  image: /images/AFR/banner_car.png
-  link:
-    label: Learn More
-    href: "https://themefisher.com/products/andromeda-nextjs"
+  image: /images/AFR/AFR_banner_gastly2.jpg
 
 ##brands
 brands:
